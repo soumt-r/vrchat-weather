@@ -171,7 +171,7 @@ def refresh():
   Wdata = []
   Wndata = []
   weather = ''
-  today = datetime.datetime.now()
+  today = datetime.datetime.now(tz=datetime.timezone(datetime.timedelta(hours=9)))
   for i in range(len(Locs)):
     base_time = getBaseTime(today)
     Wbase_time = getUltraBaseTime(today)
