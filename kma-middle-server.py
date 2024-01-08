@@ -194,7 +194,7 @@ def refresh():
     weather = weather[:-1]
     weather += '/'
   weather = weather[:-1]
-  result_data = today.strftime('%Y%m%d') + '*' + base_time + '*' + weather
+  result_data = today.strftime('%Y%m%d') + '*' + Wbase_time + '*' + weather
   data = {'data':result_data}
   with open('weather.json', 'w') as outfile:
     json.dump(data, outfile)
@@ -214,11 +214,11 @@ class Weather(Resource):
       data = json.load(outfile)
     return data
 
-@api.route('/api/v1/refresh')
-class Refresh(Resource):
-  def get(self):
-    refresh()
-    return {'result':'refreshed'}
+#@api.route('/api/v1/refresh')
+#class Refresh(Resource):
+#  def get(self):
+#    refresh()
+#    return {'result':'refreshed'}
 
 if __name__ == '__main__':
   app.run(host='127.0.0.1', port=5000, debug=True)
